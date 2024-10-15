@@ -26,3 +26,7 @@ Door:	Covers a block when locked
 Lava:	Mouse cannot touch lava
 
 Teleoprter:	Placing attack on this will teleopt it to another area
+
+## Progress Log
+Overall: 2%
+[##--------------------------------------------------------------------------------------------------]
