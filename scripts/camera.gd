@@ -2,6 +2,8 @@ extends Camera2D
 
 @export var minZoom = 0.1
 @export var maxZoom = 10
+@export var minMove = -1000
+@export var maxMove = 1000
 
 func _ready() -> void:
 	pass
@@ -16,8 +18,10 @@ func Zoom():
 		zoom = zoom * 1.1
 	elif Input.is_action_just_pressed("camera_zoom_out"):
 		zoom = zoom * 0.9
-	zoom.x = clamp(zoom.x, minZoom, maxZoom)
-	zoom.y = clamp(zoom.y, minZoom, maxZoom)
+	zoom = Vector2(
+		clamp(zoom.x, minZoom, maxZoom),
+		clamp(zoom.y, minZoom, maxZoom)
+	)
 	
 func Pan():
 	if Input.is_action_pressed("camera_move_left"):
@@ -28,6 +32,10 @@ func Pan():
 		position += Vector2(0,5)
 	if Input.is_action_pressed("camera_move_up"):
 		position += Vector2(0,-5)
+	position = Vector2(
+		clamp(position.x, minMove, maxMove),
+		clamp(position.y, minMove, maxMove)
+	)
 	
 func ClickAndDrag():
 	pass
