@@ -1,27 +1,31 @@
 [gd_scene load_steps=4 format=3 uid="uid://uwuc3yh2dqye"]
 
-[ext_resource type="Texture2D" uid="uid://kxjcnmturrmv" path="res://assets/grass.png" id="1_w8b2o"]
+[ext_resource type="Texture2D" uid="uid://cqx8d5xlthg8l" path="res://assets/tileset.png" id="1_k8p6s"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n7gf3"]
-texture = ExtResource("1_w8b2o")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c7ylf"]
+texture = ExtResource("1_k8p6s")
 texture_region_size = Vector2i(26, 26)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -6)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -6)
+0:1/0 = 0
+1:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_lb86v"]
 tile_shape = 1
 tile_layout = 5
 tile_size = Vector2i(26, 13)
-sources/1 = SubResource("TileSetAtlasSource_n7gf3")
+sources/0 = SubResource("TileSetAtlasSource_c7ylf")
 
 [node name="Level1" type="Node2D"]
 
 [node name="tileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lb86v")
 format = 2
-layer_0/tile_data = PackedInt32Array(65535, 1, 0, 131071, 1, 0, 196607, 1, 0, 262143, 1, 0, 327679, 1, 0, 393215, 1, 0, 0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608, 1, 0, 262144, 1, 0, 327680, 1, 0, 1, 1, 0, 65537, 1, 0, 131073, 1, 0, 196609, 1, 0, 262145, 1, 0, 327681, 1, 0, 2, 1, 0, 65538, 1, 0, 131074, 1, 0, 196610, 1, 0, 262146, 1, 0, 327682, 1, 0, 3, 1, 0, 65539, 1, 0, 131075, 1, 0, 196611, 1, 0, 262147, 1, 0, 327683, 1, 0, 4, 1, 0, 65540, 1, 0, 131076, 1, 0, 196612, 1, 0, 262148, 1, 0, 327684, 1, 0)
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
 layer_1/name = "Layer1"
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 1
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(65535, 1, 0, 131071, 1, 0, 196607, 1, 0, 262143, 1, 0, 0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608, 1, 0, 1, 1, 0, 65537, 1, 0, 131073, 1, 0, 196609, 1, 0, 2, 1, 0, 65538, 1, 0, 131074, 1, 0, 196610, 1, 0)
+layer_1/tile_data = PackedInt32Array(0, 65536, 0)
