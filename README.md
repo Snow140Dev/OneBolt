@@ -28,8 +28,14 @@ Lava:	Mouse cannot touch lava
 Teleoprter:	Placing attack on this will teleopt it to another area
 
 ## Progress Log
-Overall: 2%
-[##--------------------------------------------------------------------------------------------------]
+Overall: 5%
+[#####-----------------------------------------------------------------------------------------------]
 
 10/15/2024:
 Created Isometric Tilemap!
+
+10/17/2024:
+Created all sprites
+
+10/18/2024:
+Added Mouse Hover Effects
