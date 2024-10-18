@@ -34,6 +34,10 @@ Overall: 5%
 10/15/2024:
 Created Isometric Tilemap!
 
+IMPORTANT:
+
+Re-distrubution of this game is strictly prohibted. All code here is for educational use only. You may use some of it, but cannot send out copies of the same game. The game is copyrighted by Snow140 GameDev. Thank you.
+
 10/17/2024:
 Created all sprites
 
