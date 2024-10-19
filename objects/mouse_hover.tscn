@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://djwmw3ekeqrlh"]
+[gd_scene load_steps=4 format=3 uid="uid://djwmw3ekeqrlh"]
 
 [ext_resource type="Script" path="res://scripts/mouse_hover.gd" id="1_jd3bq"]
-[ext_resource type="Texture2D" uid="uid://dnqxpibeouipk" path="res://assets/mouse-hover.png" id="1_qak0t"]
+[ext_resource type="Texture2D" uid="uid://uro0i3c47p5j" path="res://assets/mouse-hover.png" id="1_qak0t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bhiw"]
+size = Vector2(2, 1)
 
 [node name="MouseHover" type="Node2D"]
 script = ExtResource("1_jd3bq")
@@ -10,3 +13,11 @@ script = ExtResource("1_jd3bq")
 modulate = Color(1, 1, 1, 0.384314)
 position = Vector2(26, 13)
 texture = ExtResource("1_qak0t")
+
+[node name="coll" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coll"]
+position = Vector2(13, 12.5)
+shape = SubResource("RectangleShape2D_8bhiw")
