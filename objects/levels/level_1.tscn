@@ -1,21 +1,44 @@
 [gd_scene load_steps=4 format=3 uid="uid://uwuc3yh2dqye"]
 
-[ext_resource type="Texture2D" uid="uid://cqx8d5xlthg8l" path="res://assets/tileset.png" id="1_k8p6s"]
+[ext_resource type="Texture2D" uid="uid://23p8yxj1gmrs" path="res://assets/tileset.png" id="1_k8p6s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c7ylf"]
 texture = ExtResource("1_k8p6s")
 texture_region_size = Vector2i(26, 26)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -6)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, 13, 0, 11.875, 12.75, 0.375, 17.75, -12.375, 13.25, -13, 0)
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -6)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, -13, 0, -12.9047, 12.3744, -0.883884, 18.3848, 11.844, 12.3744, 13, 0)
 0:1/0 = 0
 1:1/0 = 0
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -6)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, -13, 0, -12.5511, 13.0815, -0.530331, 18.0312, 11.4905, 12.3744, 13, 0)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -6)
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, -13, 0, -12.9047, 12.7279, 0.176777, 18.3848, 12.1976, 12.3744, 13, 0)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, -1)
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, -13, 0, -12.5625, 7.75, -0.125, 13.75, 11.875, 7.5, 13, 0)
+5:0/0 = 0
+5:0/0/texture_origin = Vector2i(0, -6)
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, 13, 0, 11.4905, 12.3744, -0.883884, 17.6777, -11.844, 12.3744, -13, 0)
+6:0/0 = 0
+6:0/0/texture_origin = Vector2i(0, -6)
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, 13, 0, 12.125, 12.75, 0.125, 18, -12.375, 12.75, -13, 0)
+7:0/0 = 0
+7:0/0/texture_origin = Vector2i(0, -7)
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, 13, 0, 12.125, 13.25, 0.375, 19, -12.875, 13.75, -13, 0)
 
 [sub_resource type="TileSet" id="TileSet_lb86v"]
 tile_shape = 1
 tile_layout = 5
 tile_size = Vector2i(26, 13)
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 2
+physics_layer_1/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_c7ylf")
 
 [node name="Level1" type="Node2D"]
@@ -23,9 +46,9 @@ sources/0 = SubResource("TileSetAtlasSource_c7ylf")
 [node name="tileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lb86v")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 131075, 0, 0, 65539, 0, 0, 3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0, 6, 0, 0, 65542, 0, 0, 131078, 0, 0, 7, 0, 0, 65543, 0, 0, 131079, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 10, 0, 0, 65546, 0, 0, 131082, 0, 0, 11, 0, 0, 65547, 0, 0, 131083, 0, 0, 12, 0, 0, 65548, 0, 0, 131084, 0, 0, 13, 0, 0, 65549, 0, 0, 131085, 0, 0, 14, 0, 0, 65550, 0, 0, 131086, 0, 0, 15, 0, 0, 65551, 0, 0, 131087, 0, 0)
 layer_1/name = "Layer1"
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 1
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(0, 65536, 0)
+layer_1/tile_data = PackedInt32Array(0, 65536, 0, 2, 131072, 0, 4, 196608, 0, 65543, 262144, 0, 9, 327680, 0, 11, 393216, 0, 13, 458752, 0)
