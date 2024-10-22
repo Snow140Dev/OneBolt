@@ -8,10 +8,16 @@ func is_even(integer):
 func _process(delta: float) -> void:
 	var tileNode = get_parent().get_node("Level1/tileMap")
 	var mouse_cell_pos = tileNode.local_to_map( get_global_mouse_position() )
-	print(mouse_cell_pos)
+	var hovered_cell = tileNode.local_to_map( $coll.global_position )
+	print(hovered_cell)
 	
-	hovered = [tileNode.get_cell_tile_data(0,mouse_cell_pos,true)]
-	
+	hovered = [tileNode.get_cell_tile_data(0,hovered_cell),tileNode.get_cell_tile_data(1,hovered_cell),]
+	for hover in hovered:
+		if hover:
+			if hover.get_custom_data("type") == "Grass":
+				print("Grass!")
+			if hover.get_custom_data("type") == "Crate":
+				print("Crate!")
 	
 	if is_even(mouse_cell_pos.x):
 		mouse_cell_pos.x -= 1
