@@ -3,7 +3,7 @@ extends Camera2D
 @export var minZoom = 0.1
 @export var maxZoom = 10
 @export var minMove = -1000
-@export var maxMove = 1000
+@export var maxMove = 2000
 
 func _ready() -> void:
 	pass
