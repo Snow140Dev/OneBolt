@@ -6,6 +6,9 @@ func is_even(integer):
 	return integer % 2 == 0
 
 func _process(delta: float) -> void:
+	getHover()
+	
+func getHover():
 	
 	# Gets Tiles and Mouse Position
 	
@@ -47,14 +50,3 @@ func _process(delta: float) -> void:
 			hovered[1] = tileNode.get_cell_tile_data(1, hovered_cell + Vector2i(-1,0))
 			if not hovered[1]:
 				hovered[1] = tileNode.get_cell_tile_data(1, hovered_cell + Vector2i(0,-1))
-				
-		# Print Hovered Tiles		
-		
-		for hover in hovered:
-			#print(mouse_cell_pos - Vector2i(get_parent().global_position.x,get_parent().global_position.y)/Vector2i(26,13))
-			if hover:
-				if hover.get_custom_data("type") == "Grass":
-					#print("Grass!")
-					pass
-				if hover.get_custom_data("type") == "Crate":
-					print("Crate!")
