@@ -7,7 +7,14 @@ extends Node2D
 ## Lists ##
 
 @onready var levels = {
-	1: $Levels/Level1, }
+	1: $Levels/Level1,
+	2: $Levels/Level2,
+	3: $Levels/Level3,
+	4: $Levels/Level4,
+	5: $Levels/Level5,
+	6: $Levels/Level6,
+	7: $Levels/Level7,
+	8: $Levels/Level8 }
 var blocks = {
 	grass: [],
 	crates : [],
@@ -35,10 +42,26 @@ var levelNode
 ## Built-in Functions ##
 
 func _ready() -> void:
-	onLevelLoad()
+	loadLevel()
 
 func _process(delta: float) -> void:
 	getBlockHit()
+	
+	if Input.is_action_just_pressed("rClick"):
+		if level < 8:
+			level += 1
+		else:
+			level = 1
+			
+		loadLevel()
+
+func loadLevel():
+	for lvl in levels:
+		levels[lvl].visible = false
+	levels[level].visible = true
+	
+	onLevelLoad()
+
 ## Levels ##
 	
 func onLevelLoad():
