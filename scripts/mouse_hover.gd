@@ -6,7 +6,8 @@ func is_even(integer):
 	return integer % 2 == 0
 
 func _process(delta: float) -> void:
-	getHover()
+	if get_parent().visible:
+		getHover()
 	
 func getHover():
 	
