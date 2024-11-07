@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyi72yvqkr8xe"]
+
+[ext_resource type="Texture2D" uid="uid://cqx8d5xlthg8l" path="res://assets/tileset.png" id="1_py4b7"]
+[ext_resource type="PackedScene" uid="uid://djwmw3ekeqrlh" path="res://objects/mouse_hover.tscn" id="2_liqe8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1p62"]
+texture = ExtResource("1_py4b7")
+texture_region_size = Vector2i(26, 26)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -6)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, 13, 0, 11.875, 12.75, 0.375, 17.75, -12.375, 13.25, -13, 0)
+0:0/0/custom_data_0 = "Grass"
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -6)
+1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(0, -6.5, 13, 0, 12.5, 12.75, 0.75, 18.25, -12.25, 12.75, -13, 0)
+1:0/0/custom_data_0 = "Crate"
+0:1/0 = 0
+1:1/0 = 0
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -6)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, -13, 0, -12.5511, 13.0815, -0.530331, 18.0312, 11.4905, 12.3744, 13, 0)
+2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(0, -6.5, 13, 0, 12.0208, 12.3744, 0.353554, 16.617, -12.7279, 12.7279, -13, 0)
+2:0/0/custom_data_0 = "Return"
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -6)
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, -13, 0, -12.9047, 12.7279, 0.176777, 18.3848, 12.1976, 12.3744, 13, 0)
+3:0/0/custom_data_0 = "Scatter"
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, -6)
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, -13, 0, -12.5625, 7.75, -0.125, 13.75, 11.875, 7.5, 13, 0)
+4:0/0/custom_data_0 = "Key"
+5:0/0 = 0
+5:0/0/texture_origin = Vector2i(0, -6)
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, 13, 0, 11.4905, 12.3744, -0.883884, 17.6777, -11.844, 12.3744, -13, 0)
+5:0/0/custom_data_0 = "Door"
+6:0/0 = 0
+6:0/0/texture_origin = Vector2i(0, -6)
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, 13, 0, 12.125, 12.75, 0.125, 18, -12.375, 12.75, -13, 0)
+6:0/0/custom_data_0 = "Lava"
+7:0/0 = 0
+7:0/0/texture_origin = Vector2i(0, -7)
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -6.5, 13, 0, 12.125, 13.25, 0.375, 19, -12.875, 13.75, -13, 0)
+7:0/0/custom_data_0 = "Portal"
+
+[sub_resource type="TileSet" id="TileSet_0r6ej"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(26, 13)
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 2
+physics_layer_1/collision_mask = 2
+custom_data_layer_0/name = "type"
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetAtlasSource_n1p62")
+
+[node name="Level7" type="Node2D"]
+
+[node name="tileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_0r6ej")
+format = 2
+layer_0/name = "0"
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(0, 393216, 0, 65536, 393216, 0, 131072, 393216, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 1, 393216, 0, 65537, 0, 0, 131073, 393216, 0, 196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 2, 393216, 0, 65538, 0, 0, 131074, 393216, 0, 196610, 0, 0, 262146, 0, 0, 327682, 0, 0, 3, 393216, 0, 65539, 393216, 0, 131075, 393216, 0, 196611, 0, 0, 262147, 0, 0, 327683, 0, 0, 4, 393216, 0, 65540, 393216, 0, 131076, 393216, 0, 196612, 0, 0, 262148, 0, 0, 327684, 0, 0, 5, 393216, 0, 65541, 393216, 0, 131077, 393216, 0, 196613, 0, 0, 262149, 0, 0, 327685, 0, 0, 6, 393216, 0, 65542, 393216, 0, 131078, 393216, 0, 196614, 0, 0, 262150, 0, 0, 327686, 0, 0, 7, 393216, 0, 65543, 393216, 0, 131079, 393216, 0, 196615, 0, 0, 262151, 0, 0, 327687, 0, 0, 8, 393216, 0, 65544, 393216, 0, 131080, 393216, 0, 196616, 0, 0, 262152, 0, 0, 327688, 0, 0)
+layer_1/name = "1"
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 1
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(0, 65536, 0, 1, 458752, 0, 196609, 131072, 0, 196613, 458752, 0)
+
+[node name="MouseHover" parent="." instance=ExtResource("2_liqe8")]
+z_index = 10
