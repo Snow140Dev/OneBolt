@@ -39,6 +39,8 @@ enum {
 var level = 1
 var levelNode
 
+@onready var blockBreak = $Systems/DestroyBlock
+
 ## Built-in Functions ##
 
 func _ready() -> void:
@@ -72,7 +74,9 @@ func onLevelLoad():
 		for c in tilemap.get_used_cells(i):
 			var tile = tilemap.get_cell_tile_data(i,c)
 			if tile.get_custom_data("type") == "Grass": blocks[grass].append(c)
-			elif tile.get_custom_data("type") == "Crate": blocks[crates].append(c)
+			elif tile.get_custom_data("type") == "Crate": 
+				blocks[crates].append(c)
+				print(tile)
 			elif tile.get_custom_data("type") == "Return": blocks[returns].append(c)
 			elif tile.get_custom_data("type") == "Scatter": blocks[scatters].append(c)
 			elif tile.get_custom_data("type") == "Key": blocks[keys].append(c)
@@ -88,4 +92,14 @@ func getBlockHit():
 			if hover.hovered.size() > 1:
 				if hover.hovered[1]:
 					if hover.hovered[1].get_custom_data("type") == "Crate":
-						print("Hit!")
+						blockBreak.destroy(levelNode.get_node("tileMap"), hover.hovered[2])
+						hover.hovered[1].set_terrain(0)
+						onLevelLoad()
+						print(blocks[crates])
+						if blocks[crates] == []:
+							if level < 8:
+								level += 1
+							elif level == 8:
+								print("WIN")
+								level = 1
+							loadLevel()
