@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://sj7sbwj13vce"]
+
+[ext_resource type="Texture2D" uid="uid://cgu0o2yx4l63a" path="res://assets/hotbar.png" id="1_g8r0a"]
+[ext_resource type="Script" path="res://scripts/hotbar.gd" id="1_usm77"]
+[ext_resource type="PackedScene" uid="uid://cj05wodi1qbam" path="res://objects/item.tscn" id="2_w38na"]
+
+[node name="Hotbar" type="Node2D"]
+script = ExtResource("1_usm77")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(231, 21)
+scale = Vector2(0.5775, 0.42)
+texture = ExtResource("1_g8r0a")
+
+[node name="Item" parent="." instance=ExtResource("2_w38na")]
+position = Vector2(23, 21)
