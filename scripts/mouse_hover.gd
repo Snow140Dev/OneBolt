@@ -44,7 +44,7 @@ func getHover():
 		
 		# Get Hovered Tiles
 		
-		hovered = [tileNode.get_cell_tile_data(0,hovered_cell),tileNode.get_cell_tile_data(1,hovered_cell)]
+		hovered = [tileNode.get_cell_tile_data(0,hovered_cell),tileNode.get_cell_tile_data(1,hovered_cell),hovered_cell]
 		if hovered[1]:
 			pass
 		else:
