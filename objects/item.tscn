@@ -13,6 +13,8 @@ script = ExtResource("1_wfjhk")
 scale = Vector2(0.90625, 0.90625)
 texture = ExtResource("1_6iymt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="hover" type="Area2D" parent="."]
+
+[node name="collider" type="CollisionShape2D" parent="hover"]
 position = Vector2(-1, 0.25)
 shape = SubResource("RectangleShape2D_b8xql")
