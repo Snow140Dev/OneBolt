@@ -39,6 +39,9 @@ enum {
 var level = 1
 var levelNode
 
+var hoveredTool 
+var selectedTool
+
 @onready var blockBreak = $Systems/DestroyBlock
 
 ## Built-in Functions ##
@@ -88,6 +91,9 @@ func onLevelLoad():
 
 func getBlockHit():
 	if Input.is_action_just_pressed("click"):
+		if hoveredTool != null:
+			selectedTool = hoveredTool
+			print(selectedTool)
 		if hover: 
 			if hover.hovered.size() > 1:
 				if hover.hovered[1]:

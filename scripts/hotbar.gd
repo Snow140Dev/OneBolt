@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var items = ["strm1"]
+var items = ["bolt1", "strm2"]
 
 @onready var prevItems = [get_node("Item")]
 

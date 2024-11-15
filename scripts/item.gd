@@ -15,7 +15,9 @@ func _ready() -> void:
 		
 func enlarge():
 	$sprite.scale = Vector2(1.2, 1.2)
-	print("big!")
+	if get_parent().get_parent().get_parent().hoveredTool == null:
+		get_parent().get_parent().get_parent().hoveredTool = self.type
 	
 func shrink():
 	$sprite.scale = Vector2(1, 1)
+	get_parent().get_parent().get_parent().hoveredTool = null
