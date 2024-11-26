@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://hipmkkqcd873"]
+[gd_scene load_steps=14 format=3 uid="uid://hipmkkqcd873"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bcdrl"]
 [ext_resource type="PackedScene" uid="uid://uwuc3yh2dqye" path="res://objects/levels/level_1.tscn" id="1_web6s"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_q1b34"]
+[ext_resource type="Texture2D" uid="uid://co38rcwpym8ao" path="res://assets/environment_forest_alt1.png" id="2_y12h8"]
 [ext_resource type="PackedScene" uid="uid://cjmtc4syw0vr6" path="res://objects/levels/level_2.tscn" id="4_lm0e2"]
 [ext_resource type="PackedScene" uid="uid://doa7a2dhpmje6" path="res://objects/levels/level_3.tscn" id="5_yx20x"]
 [ext_resource type="PackedScene" uid="uid://co3hlji63p1cq" path="res://objects/levels/level_4.tscn" id="6_dbbk6"]
@@ -15,6 +16,15 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_bcdrl")
+
+[node name="bg2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="bg" type="Sprite2D" parent="bg2"]
+modulate = Color(0.585455, 0.937492, 0.745269, 1)
+position = Vector2(591, 241)
+scale = Vector2(1.61871, 1.34896)
+texture = ExtResource("2_y12h8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(74, 45)
