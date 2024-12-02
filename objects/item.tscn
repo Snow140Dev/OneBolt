@@ -19,3 +19,6 @@ disable_mode = 2
 [node name="collider" type="CollisionShape2D" parent="hover"]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_b8xql")
+
+[connection signal="mouse_entered" from="hover" to="." method="enlarge"]
+[connection signal="mouse_exited" from="hover" to="." method="shrink"]
