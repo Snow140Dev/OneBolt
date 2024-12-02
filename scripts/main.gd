@@ -39,7 +39,7 @@ enum {
 var level = 1
 var levelNode
 
-var hoveredTool 
+var hoveredTool = []
 var selectedTool
 
 @onready var blockBreak = $Systems/DestroyBlock
@@ -51,6 +51,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	getBlockHit()
+	
+	#print(hoveredTool)
 	
 	if Input.is_action_just_pressed("rClick"):
 		if level < 8:
@@ -77,9 +79,7 @@ func onLevelLoad():
 		for c in tilemap.get_used_cells(i):
 			var tile = tilemap.get_cell_tile_data(i,c)
 			if tile.get_custom_data("type") == "Grass": blocks[grass].append(c)
-			elif tile.get_custom_data("type") == "Crate": 
-				blocks[crates].append(c)
-				print(tile)
+			elif tile.get_custom_data("type") == "Crate": blocks[crates].append(c)
 			elif tile.get_custom_data("type") == "Return": blocks[returns].append(c)
 			elif tile.get_custom_data("type") == "Scatter": blocks[scatters].append(c)
 			elif tile.get_custom_data("type") == "Key": blocks[keys].append(c)
@@ -93,7 +93,6 @@ func getBlockHit():
 	if Input.is_action_just_pressed("click"):
 		if hoveredTool != null:
 			selectedTool = hoveredTool
-			print(selectedTool)
 		if hover: 
 			if hover.hovered.size() > 1:
 				if hover.hovered[1]:
@@ -101,7 +100,6 @@ func getBlockHit():
 						blockBreak.destroy(levelNode.get_node("tileMap"), hover.hovered[2])
 						hover.hovered[1].set_terrain(0)
 						onLevelLoad()
-						print(blocks[crates])
 						if blocks[crates] == []:
 							if level < 8:
 								level += 1
