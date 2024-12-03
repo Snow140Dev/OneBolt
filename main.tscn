@@ -59,7 +59,7 @@ scale = Vector2(2, 2)
 
 [node name="Systems" type="Node" parent="."]
 
-[node name="DestroyBlock" type="Node" parent="Systems"]
+[node name="DestroyBlock" type="Node2D" parent="Systems"]
 script = ExtResource("11_4h8dr")
 
 [node name="UI" type="CanvasLayer" parent="."]
