@@ -52,7 +52,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	getBlockHit()
 	
-	#print(hoveredTool)
+	print(hoveredTool)
 	
 	if Input.is_action_just_pressed("rClick"):
 		if level < 8:

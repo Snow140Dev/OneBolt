@@ -3,6 +3,7 @@ extends Node2D
 
 var items = ["bolt1", "strm2"]
 
+
 @onready var prevItems = [get_node("Item")]
 
 @onready var itemScene = preload("res://objects/item.tscn")
@@ -10,8 +11,6 @@ var items = ["bolt1", "strm2"]
 func _ready() -> void:
 	loadItems()
 
-func _process(delta: float) -> void:
-	loadItems()
 	
 func loadItems():
 	for prev in prevItems:
