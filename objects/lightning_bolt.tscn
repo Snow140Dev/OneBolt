@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://11oxx6ukm444"]
+
+[ext_resource type="Texture2D" uid="uid://b7pogrvipmxee" path="res://assets/Bolt1.png" id="1_amqog"]
+[ext_resource type="Script" path="res://objects/end_self.gd" id="1_gs3bh"]
+[ext_resource type="Texture2D" uid="uid://duyhbch0x2hjk" path="res://assets/Bolt_2.png" id="2_u1xme"]
+[ext_resource type="AudioStream" uid="uid://1yo6yntj0g5y" path="res://assets/GameSFX/Electric/Retro Electric Sparks 22.wav" id="4_7k55r"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_q1uam"]
+frames = 2
+frame_0/texture = ExtResource("1_amqog")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("2_u1xme")
+frame_1/duration = 0.1
+
+[node name="LightningBolt" type="Node2D"]
+z_index = 10
+script = ExtResource("1_gs3bh")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 100, 0)
+width = 32.0
+texture = SubResource("AnimatedTexture_q1uam")
+texture_mode = 2
+
+[node name="lifetime" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="strike" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7k55r")
+autoplay = true
+
+[connection signal="timeout" from="lifetime" to="." method="kill"]
