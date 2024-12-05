@@ -22,6 +22,7 @@ texture = ExtResource("3_bd6ia")
 [node name="selectedVeiw" type="Node2D" parent="."]
 
 [node name="bolt" type="Sprite2D" parent="selectedVeiw"]
+visible = false
 position = Vector2(1122.5, 29.5)
 scale = Vector2(1.40625, 1.40625)
 texture = ExtResource("4_kdx46")

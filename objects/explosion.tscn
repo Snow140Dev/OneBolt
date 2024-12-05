@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dekjcwvoh714a"]
+
+[ext_resource type="Script" path="res://scripts/explosion.gd" id="1_lbdbj"]
+[ext_resource type="Texture2D" uid="uid://br37eu4kw588t" path="res://assets/crateExplosion.png" id="1_oskmq"]
+
+[sub_resource type="Curve" id="Curve_ld1wn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.528369, 0.00433517), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_by0y6"]
+curve = SubResource("Curve_ld1wn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rtp8h"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 180.0
+flatness = 0.064
+initial_velocity_min = 455.74
+initial_velocity_max = 627.41
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_by0y6")
+scale_over_velocity_min = 0.1
+scale_over_velocity_max = 0.1
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
+[node name="Explosion" type="GPUParticles2D"]
+process_mode = 3
+z_index = 12
+scale = Vector2(0.995978, 0.899884)
+amount = 10
+amount_ratio = 0.75
+process_material = SubResource("ParticleProcessMaterial_rtp8h")
+texture = ExtResource("1_oskmq")
+speed_scale = 1.5
+explosiveness = 1.0
+visibility_rect = Rect2(-50, -50, 100, 100)
+script = ExtResource("1_lbdbj")
+
+[node name="Timer" type="Timer" parent="."]
