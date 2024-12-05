@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://p6t8d1prpbxr"]
+
+[ext_resource type="Script" path="res://scripts/tooltip.gd" id="1_l8qed"]
+
+[node name="Popups" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 200.0
+script = ExtResource("1_l8qed")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ItemPopup" type="PopupPanel" parent="UI"]
+unique_name_in_owner = true
+position = Vector2i(526, 274)
+size = Vector2i(173, 100)
+visible = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ItemPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 169.0
+offset_bottom = 96.0
+
+[node name="Name" type="Label" parent="UI/ItemPopup/VBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="Desc" type="Label" parent="UI/ItemPopup/VBoxContainer"]
+layout_mode = 2
+text = "Description of Item - 
+What it does
+"
+
+[node name="BlockPopup" type="PopupPanel" parent="UI"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+position = Vector2i(526, 274)
+size = Vector2i(173, 111)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BlockPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 169.0
+offset_bottom = 107.0
+
+[node name="Name" type="Label" parent="UI/BlockPopup/VBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="Desc" type="Label" parent="UI/BlockPopup/VBoxContainer"]
+layout_mode = 2
+text = "Description of Block
+"
+
+[node name="Label" type="Label" parent="UI/BlockPopup/VBoxContainer"]
+layout_mode = 2
+text = "Details"
