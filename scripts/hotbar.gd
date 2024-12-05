@@ -3,6 +3,8 @@ extends Node2D
 
 var items = ["bolt1", "strm2"]
 
+@onready var selectedItemsVeiw = [$selectedVeiw/bolt, $selectedVeiw/strm]
+
 
 @onready var prevItems = [get_node("Item")]
 
@@ -11,6 +13,11 @@ var items = ["bolt1", "strm2"]
 func _ready() -> void:
 	loadItems()
 
+func changeSelected(tool):
+	for hideTool in selectedItemsVeiw:
+		hideTool.visible = false
+	if tool == "bolt": selectedItemsVeiw[0].visible = true
+	if tool == "strm": selectedItemsVeiw[1].visible = true
 	
 func loadItems():
 	for prev in prevItems:

@@ -3,6 +3,7 @@ extends Node2D
 ## Game Nodes ##
 
 @onready var hover = $Levels/Level1/MouseHover
+@onready var hotbar = $UI/Hotbar
 
 ## Lists ##
 
@@ -61,6 +62,11 @@ func _process(delta: float) -> void:
 			level = 1
 			
 		loadLevel()
+		
+	elif Input.is_action_just_pressed("click"):
+		if hoveredTool != []:
+			selectedTool = hoveredTool[0]
+			hotbar.changeSelected(selectedTool)
 
 func loadLevel():
 	for lvl in levels:
