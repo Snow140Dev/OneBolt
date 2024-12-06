@@ -41,7 +41,6 @@ var level = 1
 var levelNode
 
 var hoveredTool = []
-var hoveredToolPos = []
 var selectedTool
 
 @onready var blockBreak = $Systems/DestroyBlock
@@ -69,12 +68,7 @@ func _process(delta: float) -> void:
 		if hoveredTool != []:
 			selectedTool = hoveredTool[0]
 			hotbar.changeSelected(selectedTool)
-			
-	if hoveredTool != []:
-		print(hoveredToolPos)
-		Tooltip.ItemPopup(hoveredToolPos[0][0], hoveredToolPos[0][1], hoveredTool[0])
-	else:
-		Tooltip.HideItemPopup()
+		
 
 func loadLevel():
 	for lvl in levels:
