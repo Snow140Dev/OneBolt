@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var items = ["bolt1","bolt2","bolt3","bolt4","bolt5","bolt6",]
+var items = ["bolt1","strm2"]
 
 @onready var selectedItemsVeiw = [$selectedVeiw/bolt, $selectedVeiw/strm]
 
@@ -22,6 +22,7 @@ func changeSelected(tool):
 func loadItems():
 	for prev in prevItems:
 		if prev:
+			prev.visible = false
 			prev.queue_free()
 	for item in items:
 		prevItems = []

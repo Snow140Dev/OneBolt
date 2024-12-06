@@ -1,6 +1,7 @@
 extends Control
 
 var boltDesc = "Destroys one block."
+var strmDesc = "Stroys all blocks in a \nsix-block radius"
 
 func ItemPopup(x, y, item):
 	if x <= get_viewport_rect().size.x/2:
@@ -12,6 +13,9 @@ func ItemPopup(x, y, item):
 	if item == "bolt":
 		$UI/ItemPopup/VBoxContainer/Name.text = "Bolt"
 		$UI/ItemPopup/VBoxContainer/Desc.text = boltDesc
+	if item == "strm":
+		$UI/ItemPopup/VBoxContainer/Name.text = "Storm"
+		$UI/ItemPopup/VBoxContainer/Desc.text = strmDesc
 	
 func HideItemPopup():
 	%ItemPopup.hide()

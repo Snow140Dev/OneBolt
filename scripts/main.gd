@@ -52,6 +52,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	getBlockHit()
+	hoverLava()
 	
 	#print(hoveredTool)
 	
@@ -66,7 +67,20 @@ func _process(delta: float) -> void:
 		
 	elif Input.is_action_just_pressed("click"):
 		if hoveredTool != []:
+			#if selectedTool == "bolt":
+			#	print(selectedTool)
+			#	print(hotbar.items.size())
+			#	var addStr = selectedTool[0] + str(hotbar.items.size())
+			#	hotbar.items.append(addStr)
 			selectedTool = hoveredTool[0]
+			
+			for i in hotbar.items:
+				if i.begins_with(selectedTool):
+					print("ERASE!")
+					hotbar.items.erase(i)
+					hotbar.loadItems()
+					break
+					
 			hotbar.changeSelected(selectedTool)
 		
 
@@ -98,6 +112,12 @@ func onLevelLoad():
 
 ## Puzzle System ##
 
+func hoverLava():
+	if hover.hovered.size() > 1:
+		if hover.hovered[0]:
+			if hover.hovered[0].get_custom_data("type") == "Lava":
+				if not hover.hovered[1]:
+					Input.warp_mouse(Vector2(50,50))
 func getBlockHit():
 	if Input.is_action_just_pressed("click"):
 		if hoveredTool != null:
