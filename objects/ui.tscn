@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgvw1axnrkopi"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_igjyw"]
+[ext_resource type="FontFile" uid="uid://dabmi550dflbc" path="res://assets/PixeloidMono.ttf" id="2_cfkig"]
+[ext_resource type="Texture2D" uid="uid://cg1v64hoxuodf" path="res://assets/button.png" id="3_0bajj"]
+[ext_resource type="LabelSettings" uid="uid://batptxc6321rq" path="res://objects/tooltipTitle.tres" id="4_cjn4i"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_jena4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qpodo"]
+size = Vector2(520, 520)
+
+[sub_resource type="QuadMesh" id="QuadMesh_hgtkh"]
+size = Vector2(500, 500)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f55n4"]
+font = ExtResource("2_cfkig")
+font_size = 100
+font_color = Color(0.607843, 0.956863, 0.607843, 1)
+shadow_size = 7
+shadow_color = Color(0, 1, 0, 0.215686)
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_46fwi"]
+font = ExtResource("2_cfkig")
+font_size = 23
+font_color = Color(0.984314, 0.705882, 0.552941, 1)
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_igjyw")
+
+[node name="MainMenu" type="Node2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="MainMenu"]
+modulate = Color(0.34902, 0.34902, 0.34902, 0.411765)
+position = Vector2(638, 319)
+scale = Vector2(1439, 639.5)
+mesh = SubResource("QuadMesh_jena4")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="MainMenu"]
+modulate = Color(0.0118117, 0.672004, 0, 0.235294)
+position = Vector2(573, 304)
+scale = Vector2(1.233, 1)
+mesh = SubResource("QuadMesh_qpodo")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="MainMenu"]
+modulate = Color(0.731333, 0.724837, 0, 0.235294)
+position = Vector2(573, 304)
+scale = Vector2(1.233, 1)
+mesh = SubResource("QuadMesh_hgtkh")
+
+[node name="Title" type="Label" parent="MainMenu"]
+offset_top = 77.0
+offset_right = 1150.0
+offset_bottom = 200.0
+text = "ONEBOLT"
+label_settings = SubResource("LabelSettings_f55n4")
+horizontal_alignment = 1
+
+[node name="playButton" type="Button" parent="MainMenu"]
+offset_left = 469.0
+offset_top = 311.0
+offset_right = 685.0
+offset_bottom = 370.0
+
+[node name="Sprite2D" type="Sprite2D" parent="MainMenu/playButton"]
+scale = Vector2(2.80519, 1.84375)
+texture = ExtResource("3_0bajj")
+centered = false
+
+[node name="Label" type="Label" parent="MainMenu/playButton"]
+layout_mode = 0
+offset_left = -469.0
+offset_top = 9.0
+offset_right = 683.0
+offset_bottom = 49.0
+text = "PLAY"
+label_settings = ExtResource("4_cjn4i")
+horizontal_alignment = 1
+
+[node name="levelSelectButton" type="Button" parent="MainMenu"]
+offset_left = 469.0
+offset_top = 391.0
+offset_right = 685.0
+offset_bottom = 450.0
+
+[node name="Sprite2D" type="Sprite2D" parent="MainMenu/levelSelectButton"]
+scale = Vector2(2.80519, 1.84375)
+texture = ExtResource("3_0bajj")
+centered = false
+
+[node name="Label" type="Label" parent="MainMenu/levelSelectButton"]
+layout_mode = 0
+offset_left = -467.0
+offset_top = 9.0
+offset_right = 685.0
+offset_bottom = 49.0
+text = "LEVEL SELECT"
+label_settings = SubResource("LabelSettings_46fwi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pause" type="Node2D" parent="."]
+visible = false
+
+[connection signal="pressed" from="MainMenu/playButton" to="." method="play_pressed"]

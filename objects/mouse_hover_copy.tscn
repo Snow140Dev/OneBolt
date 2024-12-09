@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cveo35t8bye33"]
+
+[ext_resource type="Texture2D" uid="uid://dnqxpibeouipk" path="res://assets/mouse-hover.png" id="1_p2w08"]
+[ext_resource type="Script" path="res://objects/mouseHoverCopy.gd" id="1_wfl85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75ogj"]
+size = Vector2(2, 1)
+
+[node name="mouseHoverCopy" type="Node2D"]
+script = ExtResource("1_wfl85")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.384314)
+position = Vector2(26, 13)
+texture = ExtResource("1_p2w08")
+
+[node name="coll" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coll"]
+shape = SubResource("RectangleShape2D_75ogj")
+
+[node name="coll2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="coll2"]
+polygon = PackedVector2Array(13, 0, 25, 6, 25, 20, 13, 26, 0, 19, 0, 7)

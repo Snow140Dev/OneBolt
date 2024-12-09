@@ -1,33 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://p6t8d1prpbxr"]
+[gd_scene load_steps=5 format=3 uid="uid://p6t8d1prpbxr"]
 
 [ext_resource type="Script" path="res://scripts/tooltip.gd" id="1_l8qed"]
-[ext_resource type="FontFile" uid="uid://dabmi550dflbc" path="res://assets/PixeloidMono.ttf" id="2_ay14x"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ox1yu"]
-content_margin_left = 15.0
-content_margin_top = 15.0
-content_margin_right = 15.0
-content_margin_bottom = 15.0
-bg_color = Color(0.743233, 0.493749, 0.351469, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.00447498, 0.535876, 3.85046e-07, 1)
-border_blend = true
-corner_radius_top_left = 20
-corner_radius_top_right = 3
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 3
-
-[sub_resource type="LabelSettings" id="LabelSettings_7lcnr"]
-font = ExtResource("2_ay14x")
-font_size = 32
-font_color = Color(0.985871, 0.707385, 0.553525, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_1kodm"]
-font = ExtResource("2_ay14x")
-font_color = Color(0.98577, 0.842858, 0.735776, 1)
+[ext_resource type="StyleBox" uid="uid://c3hj16s7xqx2y" path="res://objects/tooltip.tres" id="2_fwk7p"]
+[ext_resource type="LabelSettings" uid="uid://batptxc6321rq" path="res://objects/tooltipTitle.tres" id="3_i8upg"]
+[ext_resource type="LabelSettings" uid="uid://bqvb4erym74a3" path="res://objects/tooltipText.tres" id="4_q44vq"]
 
 [node name="Popups" type="Control"]
 z_index = 10
@@ -44,7 +20,7 @@ unique_name_in_owner = true
 position = Vector2i(340, 163)
 size = Vector2i(255, 117)
 visible = true
-theme_override_styles/panel = SubResource("StyleBoxFlat_ox1yu")
+theme_override_styles/panel = ExtResource("2_fwk7p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/ItemPopup"]
 offset_left = 15.0
@@ -55,36 +31,41 @@ offset_bottom = 102.0
 [node name="Name" type="Label" parent="UI/ItemPopup/VBoxContainer"]
 layout_mode = 2
 text = "Name"
-label_settings = SubResource("LabelSettings_7lcnr")
+label_settings = ExtResource("3_i8upg")
 
 [node name="Desc" type="Label" parent="UI/ItemPopup/VBoxContainer"]
 layout_mode = 2
 text = "Description of Item - 
 What it does
 "
-label_settings = SubResource("LabelSettings_1kodm")
+label_settings = ExtResource("4_q44vq")
 
 [node name="BlockPopup" type="PopupPanel" parent="UI"]
 unique_name_in_owner = true
 auto_translate_mode = 1
-position = Vector2i(526, 274)
-size = Vector2i(173, 111)
+position = Vector2i(340, 163)
+size = Vector2i(255, 118)
+visible = true
+theme_override_styles/panel = ExtResource("2_fwk7p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/BlockPopup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 169.0
-offset_bottom = 107.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 240.0
+offset_bottom = 103.0
 
 [node name="Name" type="Label" parent="UI/BlockPopup/VBoxContainer"]
 layout_mode = 2
 text = "Name"
+label_settings = ExtResource("3_i8upg")
 
 [node name="Desc" type="Label" parent="UI/BlockPopup/VBoxContainer"]
 layout_mode = 2
 text = "Description of Block
 "
+label_settings = ExtResource("4_q44vq")
 
 [node name="Label" type="Label" parent="UI/BlockPopup/VBoxContainer"]
 layout_mode = 2
 text = "Details"
+label_settings = ExtResource("4_q44vq")
