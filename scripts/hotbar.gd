@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var items = ["bolt1","strm2"]
+var items = ["bolt1"]
 
 @onready var selectedItemsVeiw = [$selectedVeiw/bolt, $selectedVeiw/strm]
 
@@ -17,13 +17,17 @@ func changeSelected(tool):
 	for hideTool in selectedItemsVeiw:
 		hideTool.visible = false
 	if tool == "bolt": selectedItemsVeiw[0].visible = true
-	if tool == "strm": selectedItemsVeiw[1].visible = true
+	elif tool == "strm": selectedItemsVeiw[1].visible = true
+	else:
+		selectedItemsVeiw[1].visible = false
+		selectedItemsVeiw[0].visible = false
 	
 func loadItems():
 	for prev in prevItems:
 		if prev:
 			prev.visible = false
 			prev.queue_free()
+			prevItems.erase(prev)
 	for item in items:
 		prevItems = []
 		var newItem = itemScene.instantiate()
@@ -34,4 +38,5 @@ func loadItems():
 		newItem.position.x = 25 + 40*(pos - 1)
 		add_child(newItem)
 		prevItems.append(get_node(str(newItem.name)))
+	print(prevItems)
 		

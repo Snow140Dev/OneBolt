@@ -1,6 +1,9 @@
 extends Node2D
 
 var hovered = []
+var mouse_cell_pos
+
+var finalCoords
 
 func is_even(integer):
 	return integer % 2 == 0
@@ -14,7 +17,7 @@ func getHover():
 	# Gets Tiles and Mouse Position
 	
 	var tileNode = get_parent().get_node("tileMap")
-	var mouse_cell_pos = tileNode.local_to_map( get_global_mouse_position() )
+	mouse_cell_pos = tileNode.local_to_map( get_global_mouse_position() )
 	var hovered_cell = tileNode.local_to_map( get_parent().get_local_mouse_position() )
 	
 	# Make sure we are snapped to isometric map
@@ -46,8 +49,10 @@ func getHover():
 		
 		hovered = [tileNode.get_cell_tile_data(0,hovered_cell),tileNode.get_cell_tile_data(1,hovered_cell),hovered_cell]
 		if hovered[1]:
-			pass
+			finalCoords = hovered_cell
 		else:
 			hovered[1] = tileNode.get_cell_tile_data(1, hovered_cell + Vector2i(-1,0))
+			finalCoords = hovered_cell + Vector2i(-1,0)
 			if not hovered[1]:
 				hovered[1] = tileNode.get_cell_tile_data(1, hovered_cell + Vector2i(0,-1))
+				finalCoords = hovered_cell + Vector2i(0,-1)
