@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj05wodi1qbam"]
+[gd_scene load_steps=7 format=3 uid="uid://cj05wodi1qbam"]
 
 [ext_resource type="Texture2D" uid="uid://bc8g0ogi0blj0" path="res://assets/bolt.png" id="1_6iymt"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="1_wfjhk"]
 [ext_resource type="Texture2D" uid="uid://t61w3io1fqwo" path="res://assets/storm.png" id="3_xtoec"]
+[ext_resource type="Texture2D" uid="uid://ct1tkk7gkcxww" path="res://assets/thunder.png" id="4_o2bc8"]
+[ext_resource type="Texture2D" uid="uid://7jhsmmaycdkk" path="res://assets/scatter.png" id="5_6sl5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8xql"]
 size = Vector2(26, 43)
@@ -15,6 +17,12 @@ visible = false
 scale = Vector2(0.90625, 0.90625)
 texture = ExtResource("1_6iymt")
 
+[node name="strm" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, -1)
+scale = Vector2(0.8125, 0.8125)
+texture = ExtResource("3_xtoec")
+
 [node name="hover" type="Area2D" parent="."]
 disable_mode = 2
 
@@ -22,11 +30,13 @@ disable_mode = 2
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_b8xql")
 
-[node name="strm" type="Sprite2D" parent="."]
+[node name="mine" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-1, -1)
-scale = Vector2(0.8125, 0.8125)
-texture = ExtResource("3_xtoec")
+texture = ExtResource("4_o2bc8")
+
+[node name="sctr" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_6sl5w")
 
 [connection signal="mouse_entered" from="hover" to="." method="enlarge"]
 [connection signal="mouse_exited" from="hover" to="." method="shrink"]

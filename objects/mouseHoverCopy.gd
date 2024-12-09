@@ -2,9 +2,12 @@ extends Node2D
 
 var hovered
 var finalCoords
+var tileNode
+
+func _ready() -> void:
+	tileNode = get_parent().get_parent().tilemap
 
 func _process(delta: float) -> void:
-	var tileNode = get_parent().get_parent().tilemap
 	var hovered_cell = tileNode.local_to_map( global_position )
 	
 	# Make sure we are snapped to isometric map
@@ -37,5 +40,3 @@ func _process(delta: float) -> void:
 			if not hovered[1]:
 				hovered[1] = tileNode.get_cell_tile_data(1, hovered_cell + Vector2i(0,-1))
 				finalCoords = hovered_cell + Vector2i(0,-1)
-				
-		#print(hovered)
