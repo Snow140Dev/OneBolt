@@ -2,6 +2,7 @@ extends Control
 
 const boltDesc = "Destroys one block."
 const strmDesc = "Destroys all blocks in a \nsix-block radius."
+const sctrDesc = "Destroys every other block in a\nsix-block square"
 
 const crateDesc = "These are your target.\nDestroy all to move to the next level."
 const returnDesc = "Returns spells when destroyed. \nSpells:"
@@ -38,6 +39,9 @@ func ItemPopup(x, y, item):
 	if item == "strm":
 		$UI/ItemPopup/VBoxContainer/Name.text = "Storm"
 		$UI/ItemPopup/VBoxContainer/Desc.text = strmDesc
+	if item == "sctr":
+		$UI/ItemPopup/VBoxContainer/Name.text = "Scatter"
+		$UI/ItemPopup/VBoxContainer/Desc.text = sctrDesc
 	
 func HideItemPopup():
 	%ItemPopup.hide()

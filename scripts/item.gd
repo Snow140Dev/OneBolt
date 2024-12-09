@@ -4,6 +4,8 @@ var type = ""
 
 @onready var boltSpr = $bolt
 @onready var strmSpr = $strm
+@onready var sctrSpr = $sctr
+@onready var mineSpr = $mine
 
 var sprite
 
@@ -14,6 +16,10 @@ func _ready() -> void:
 		sprite = boltSpr
 	if type == "strm":
 		sprite = strmSpr
+	if type == "mine":
+		sprite = mineSpr
+	if type == "sctr":
+		sprite = sctrSpr
 	sprite.visible = true
 	
 		
