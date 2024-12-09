@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://hipmkkqcd873"]
+[gd_scene load_steps=16 format=3 uid="uid://hipmkkqcd873"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bcdrl"]
 [ext_resource type="PackedScene" uid="uid://uwuc3yh2dqye" path="res://objects/levels/level_1.tscn" id="1_web6s"]
@@ -13,9 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://7du3ycatnd4d" path="res://objects/levels/level_8.tscn" id="10_3wee8"]
 [ext_resource type="Script" path="res://scripts/destroy_block.gd" id="11_4h8dr"]
 [ext_resource type="PackedScene" uid="uid://sj7sbwj13vce" path="res://objects/hotbar.tscn" id="12_px6f5"]
-[ext_resource type="AudioStream" uid="uid://bi1e8due62q4" path="res://assets/GameSFX/Impact/Retro Impact Punch 07.wav" id="13_fbt1l"]
+[ext_resource type="AudioStream" uid="uid://5ewuppx3sbwk" path="res://assets/GameSFX/Impact/Retro Impact Punch 07.wav" id="13_fbt1l"]
+[ext_resource type="PackedScene" uid="uid://dgvw1axnrkopi" path="res://objects/ui.tscn" id="15_euvv0"]
 
 [node name="Main" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_bcdrl")
 
 [node name="bg2" type="CanvasLayer" parent="."]
@@ -67,6 +69,8 @@ script = ExtResource("11_4h8dr")
 stream = ExtResource("13_fbt1l")
 volume_db = 8.914
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="IGUI" type="CanvasLayer" parent="."]
 
-[node name="Hotbar" parent="UI" instance=ExtResource("12_px6f5")]
+[node name="Hotbar" parent="IGUI" instance=ExtResource("12_px6f5")]
+
+[node name="UI" parent="." instance=ExtResource("15_euvv0")]
