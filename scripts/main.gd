@@ -239,7 +239,7 @@ func getBlockHit():
 							print("WIN")
 							level = 1
 						loadLevel()
-				if hover.hovered[1].get_custom_data("type") == "Return" and selectedTool == "bolt":
+				elif hover.hovered[1].get_custom_data("type") == "Return" and selectedTool == "bolt":
 					var contents = Tooltip.returns[[level, hover.finalCoords.x, hover.finalCoords.y]]
 					hotbar.items = contents
 					hotbar.loadItems()
@@ -248,19 +248,22 @@ func getBlockHit():
 					selectedTool = ""
 					hotbar.changeSelected(selectedTool)
 					onLevelLoad()
-				if hover.hovered[1].get_custom_data("type") == "Crate" and selectedTool == "strm":
+				elif hover.hovered[1].get_custom_data("type") == "Crate" and selectedTool == "strm":
 					for hoverCopy in strmHovers:
-						print(">:(")
-						print(hoverCopy.hovered)
-						if hoverCopy.hovered:
-							print("DESTORY-")
-							if hoverCopy.hovered.size() > 1:
-								print("DESTROY!")
-								if hoverCopy.hovered[1]:
-									print("DESTROY")
-									hoverCopy.hovered[1].set_terrain(0)
-									blockBreak.destroy(levelNode.get_node("tileMap"), hoverCopy.hovered[2])
-									print("DESTROY")
+						#print(">:(")
+						#print(hoverCopy.hovered)
+						#if hoverCopy.hovered:
+					#		print("DESTORY-")
+				#			if hoverCopy.hovered.size() > 1:
+				#				print("DESTROY!")
+				#				if hoverCopy.hovered[1]:
+				#					print("DESTROY")
+						print(tilemap)
+						print(hoverCopy.global_position)
+						print(tilemap.get_cell_tile_data(0,tilemap.local_to_map(hoverCopy.global_position)))
+						tilemap.get_cell_tile_data(1,tilemap.local_to_map(hoverCopy.global_position)).set_terrain(0)
+						blockBreak.destroy(levelNode.get_node("tileMap"), hoverCopy.hoveredCell)
+						print("DESTROY")
 						hoverCopy.queue_free()
 					selectedTool = ""
 					hotbar.changeSelected(selectedTool)
