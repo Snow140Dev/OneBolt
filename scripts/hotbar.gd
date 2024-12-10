@@ -5,6 +5,7 @@ var items = ["bolt1"]
 
 @onready var selectedItemsVeiw = [$selectedVeiw/bolt, $selectedVeiw/strm,$selectedVeiw/mine,$selectedVeiw/sctr]
 
+@onready var itemsNode = $Items
 
 @onready var prevItems = [get_node("Item")]
 

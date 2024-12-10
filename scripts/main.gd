@@ -120,8 +120,8 @@ func _process(delta: float) -> void:
 			#newCopy.set_script(script)
 			strmHovers.append(newHover)
 			
-			if int(coord.x) % 13 != 0 or int(coord.y) % 13 != 0:
-				print(coord)
+			#if int(coord.x) % 13 != 0 or int(coord.y) % 13 != 0:
+			#	print(coord)
 	
 	#print(hoveredTool)
 	
@@ -152,7 +152,8 @@ func _process(delta: float) -> void:
 					hotbar.loadItems()
 					hotbar.changeSelected(selectedTool)
 					break
-				
+	
+	print(hotbar.items)		
 		
 
 func loadLevel():
@@ -215,10 +216,11 @@ func getBlockHover():
 				Tooltip.BlockPopup("Key", null, 
 					10, 
 					get_viewport_rect().size.y - 150)
-			elif hover.hovered[1].get_custom_data("type") == "Portal":
+			elif hover.hovered[1].get_custom_data("type") == "PORTAL2":
 				Tooltip.BlockPopup("Portal", null, 
 					10, 
 					get_viewport_rect().size.y - 150)
+				Input.warp_mouse(Vector2(1152/2-32, 648/2-13))
 		else:
 			Tooltip.HideBlockPopup()
 
@@ -258,12 +260,12 @@ func getBlockHit():
 				#				print("DESTROY!")
 				#				if hoverCopy.hovered[1]:
 				#					print("DESTROY")
-						print(tilemap)
-						print(hoverCopy.global_position)
-						print(tilemap.get_cell_tile_data(0,tilemap.local_to_map(hoverCopy.global_position)))
+						#print(tilemap)
+						#print(hoverCopy.global_position)
+						#print(tilemap.get_cell_tile_data(1,tilemap.local_to_map(hoverCopy.global_position)))
 						tilemap.get_cell_tile_data(1,tilemap.local_to_map(hoverCopy.global_position)).set_terrain(0)
 						blockBreak.destroy(levelNode.get_node("tileMap"), hoverCopy.hoveredCell)
-						print("DESTROY")
+						#print("DESTROY")
 						hoverCopy.queue_free()
 					selectedTool = ""
 					hotbar.changeSelected(selectedTool)
