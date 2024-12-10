@@ -32,11 +32,12 @@ process_mode = 3
 script = ExtResource("1_igjyw")
 
 [node name="MainMenu" type="Node2D" parent="."]
+visible = false
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="MainMenu"]
 modulate = Color(0.34902, 0.34902, 0.34902, 0.411765)
-position = Vector2(638, 319)
-scale = Vector2(1439, 639.5)
+position = Vector2(638, 348.125)
+scale = Vector2(1439, 697.75)
 mesh = SubResource("QuadMesh_jena4")
 
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="MainMenu"]
@@ -103,12 +104,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LevelSelect" type="Node2D" parent="."]
-visible = false
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="LevelSelect"]
 modulate = Color(0.34902, 0.34902, 0.34902, 0.411765)
-position = Vector2(638, 319)
-scale = Vector2(1439, 639.5)
+position = Vector2(638, 341.125)
+scale = Vector2(1439, 683.75)
 mesh = SubResource("QuadMesh_jena4")
 
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="LevelSelect"]

@@ -42,3 +42,5 @@ texture = ExtResource("6_ty7ar")
 [node name="sctr" type="Sprite2D" parent="selectedVeiw"]
 visible = false
 texture = ExtResource("7_r8qr4")
+
+[node name="items" type="Node2D" parent="."]
