@@ -1,21 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgvw1axnrkopi"]
+[gd_scene load_steps=11 format=3 uid="uid://dgvw1axnrkopi"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_igjyw"]
 [ext_resource type="FontFile" uid="uid://dabmi550dflbc" path="res://assets/PixeloidMono.ttf" id="2_cfkig"]
 [ext_resource type="Texture2D" uid="uid://cg1v64hoxuodf" path="res://assets/button.png" id="3_0bajj"]
 [ext_resource type="LabelSettings" uid="uid://batptxc6321rq" path="res://objects/tooltipTitle.tres" id="4_cjn4i"]
+[ext_resource type="LabelSettings" uid="uid://bqvb4erym74a3" path="res://objects/tooltipText.tres" id="5_bcq1a"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_jena4"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qpodo"]
-size = Vector2(520, 520)
+size = Vector2(850, 520)
 
 [sub_resource type="QuadMesh" id="QuadMesh_hgtkh"]
-size = Vector2(500, 500)
+size = Vector2(830, 500)
 
 [sub_resource type="LabelSettings" id="LabelSettings_f55n4"]
 font = ExtResource("2_cfkig")
-font_size = 100
+font_size = 82
 font_color = Color(0.607843, 0.956863, 0.607843, 1)
 shadow_size = 7
 shadow_color = Color(0, 1, 0, 0.215686)
@@ -101,7 +102,233 @@ label_settings = SubResource("LabelSettings_46fwi")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Pause" type="Node2D" parent="."]
+[node name="LevelSelect" type="Node2D" parent="."]
 visible = false
 
+[node name="MeshInstance2D" type="MeshInstance2D" parent="LevelSelect"]
+modulate = Color(0.34902, 0.34902, 0.34902, 0.411765)
+position = Vector2(638, 319)
+scale = Vector2(1439, 639.5)
+mesh = SubResource("QuadMesh_jena4")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="LevelSelect"]
+modulate = Color(0.0118117, 0.672004, 0, 0.235294)
+position = Vector2(573, 304)
+scale = Vector2(1.233, 1)
+mesh = SubResource("QuadMesh_qpodo")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="LevelSelect"]
+modulate = Color(0.731333, 0.724837, 0, 0.235294)
+position = Vector2(573, 304)
+scale = Vector2(1.233, 1)
+mesh = SubResource("QuadMesh_hgtkh")
+
+[node name="Level1" type="Button" parent="LevelSelect"]
+offset_left = 265.0
+offset_top = 264.0
+offset_right = 545.0
+offset_bottom = 296.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelSelect/Level1"]
+position = Vector2(139.75, 16)
+scale = Vector2(3.64286, 1)
+texture = ExtResource("3_0bajj")
+
+[node name="Label" type="Label" parent="LevelSelect/Level1"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 25.0
+text = "Level #1"
+label_settings = ExtResource("5_bcq1a")
+horizontal_alignment = 1
+
+[node name="Level2" type="Button" parent="LevelSelect"]
+offset_left = 265.0
+offset_top = 320.0
+offset_right = 545.0
+offset_bottom = 352.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelSelect/Level2"]
+position = Vector2(139.75, 16)
+scale = Vector2(3.64286, 1)
+texture = ExtResource("3_0bajj")
+
+[node name="Label" type="Label" parent="LevelSelect/Level2"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 25.0
+text = "Level #2"
+label_settings = ExtResource("5_bcq1a")
+horizontal_alignment = 1
+
+[node name="Level3" type="Button" parent="LevelSelect"]
+offset_left = 265.0
+offset_top = 376.0
+offset_right = 543.0
+offset_bottom = 408.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelSelect/Level3"]
+position = Vector2(139.75, 16)
+scale = Vector2(3.64286, 1)
+texture = ExtResource("3_0bajj")
+
+[node name="Label" type="Label" parent="LevelSelect/Level3"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 25.0
+text = "Level #3"
+label_settings = ExtResource("5_bcq1a")
+horizontal_alignment = 1
+
+[node name="Level4" type="Button" parent="LevelSelect"]
+offset_left = 265.0
+offset_top = 432.0
+offset_right = 544.0
+offset_bottom = 464.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelSelect/Level4"]
+position = Vector2(139.75, 16)
+scale = Vector2(3.64286, 1)
+texture = ExtResource("3_0bajj")
+
+[node name="Label" type="Label" parent="LevelSelect/Level4"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 25.0
+text = "Level #4"
+label_settings = ExtResource("5_bcq1a")
+horizontal_alignment = 1
+
+[node name="Level5" type="Button" parent="LevelSelect"]
+offset_left = 601.0
+offset_top = 264.0
+offset_right = 879.0
+offset_bottom = 296.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelSelect/Level5"]
+position = Vector2(139.75, 16)
+scale = Vector2(3.64286, 1)
+texture = ExtResource("3_0bajj")
+
+[node name="Label" type="Label" parent="LevelSelect/Level5"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 25.0
+text = "Level #5
+"
+label_settings = ExtResource("5_bcq1a")
+horizontal_alignment = 1
+
+[node name="Level6" type="Button" parent="LevelSelect"]
+offset_left = 601.0
+offset_top = 320.0
+offset_right = 880.0
+offset_bottom = 352.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelSelect/Level6"]
+position = Vector2(139.75, 16)
+scale = Vector2(3.64286, 1)
+texture = ExtResource("3_0bajj")
+
+[node name="Label" type="Label" parent="LevelSelect/Level6"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 25.0
+text = "Level #6"
+label_settings = ExtResource("5_bcq1a")
+horizontal_alignment = 1
+
+[node name="Level7" type="Button" parent="LevelSelect"]
+offset_left = 601.0
+offset_top = 376.0
+offset_right = 879.0
+offset_bottom = 408.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelSelect/Level7"]
+position = Vector2(139.75, 16)
+scale = Vector2(3.64286, 1)
+texture = ExtResource("3_0bajj")
+
+[node name="Label" type="Label" parent="LevelSelect/Level7"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 25.0
+text = "Level #7"
+label_settings = ExtResource("5_bcq1a")
+horizontal_alignment = 1
+
+[node name="Level8" type="Button" parent="LevelSelect"]
+offset_left = 601.0
+offset_top = 432.0
+offset_right = 880.0
+offset_bottom = 464.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelSelect/Level8"]
+position = Vector2(139.75, 16)
+scale = Vector2(3.64286, 1)
+texture = ExtResource("3_0bajj")
+
+[node name="Label" type="Label" parent="LevelSelect/Level8"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 25.0
+text = "Level #8"
+label_settings = ExtResource("5_bcq1a")
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="LevelSelect"]
+offset_top = 77.0
+offset_right = 1150.0
+offset_bottom = 200.0
+text = "LEVEL SELECT"
+label_settings = SubResource("LabelSettings_f55n4")
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="LevelSelect"]
+offset_left = 432.0
+offset_top = 493.0
+offset_right = 710.0
+offset_bottom = 525.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelSelect/Back"]
+position = Vector2(139.75, 16)
+scale = Vector2(3.64286, 1)
+texture = ExtResource("3_0bajj")
+
+[node name="Label" type="Label" parent="LevelSelect/Back"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 25.0
+text = "Return To Menu"
+label_settings = ExtResource("5_bcq1a")
+horizontal_alignment = 1
+
 [connection signal="pressed" from="MainMenu/playButton" to="." method="play_pressed"]
+[connection signal="pressed" from="MainMenu/levelSelectButton" to="." method="level_select_pressed"]
+[connection signal="pressed" from="LevelSelect/Level1" to="." method="level_pressed" binds= [1]]
+[connection signal="pressed" from="LevelSelect/Level2" to="." method="level_pressed" binds= [2]]
+[connection signal="pressed" from="LevelSelect/Level3" to="." method="level_pressed" binds= [3]]
+[connection signal="pressed" from="LevelSelect/Level4" to="." method="level_pressed" binds= [4]]
+[connection signal="pressed" from="LevelSelect/Level5" to="." method="level_pressed" binds= [5]]
+[connection signal="pressed" from="LevelSelect/Level6" to="." method="level_pressed" binds= [6]]
+[connection signal="pressed" from="LevelSelect/Level7" to="." method="level_pressed" binds= [7]]
+[connection signal="pressed" from="LevelSelect/Level8" to="." method="level_pressed" binds= [8]]
+[connection signal="pressed" from="LevelSelect/Back" to="." method="back_pressed"]

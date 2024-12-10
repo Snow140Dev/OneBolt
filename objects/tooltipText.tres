@@ -1,7 +1,7 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bqvb4erym74a3"]
 
-[ext_resource type="FontFile" uid="uid://dabmi550dflbc" path="res://assets/PixeloidMono.ttf" id="1_ulvxj"]
+[ext_resource type="FontFile" uid="uid://dabmi550dflbc" path="res://assets/PixeloidMono.ttf" id="1_5xp6o"]
 
 [resource]
-font = ExtResource("1_ulvxj")
+font = ExtResource("1_5xp6o")
 font_color = Color(0.98577, 0.842858, 0.735776, 1)

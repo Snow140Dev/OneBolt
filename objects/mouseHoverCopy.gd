@@ -3,12 +3,13 @@ extends Node2D
 var hovered
 var finalCoords
 var tileNode
+var hovered_cell
 
 func _ready() -> void:
 	tileNode = get_parent().get_parent().tilemap
 
 func _process(delta: float) -> void:
-	var hovered_cell = tileNode.local_to_map( global_position )
+	hovered_cell = tileNode.local_to_map( global_position )
 	
 	# Make sure we are snapped to isometric map
 
@@ -16,11 +17,11 @@ func _process(delta: float) -> void:
 	# Checks if hovering on tilemap
 	
 	var hide = true
-	$coll.global_position = get_global_mouse_position()
+	#$coll.global_position = get_global_mouse_position()
 
 	for obj in $coll.get_overlapping_bodies():
 		hide = false
-	hide = false
+	#hide = false
 	# Resets Hover
 	
 	#hovered = []
