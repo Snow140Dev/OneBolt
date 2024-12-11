@@ -14,3 +14,16 @@ func destroy(tilemap, coords):
 	get_parent().get_parent().add_child(exp)
 	
 	$explode.play()
+	
+func replace(tilemap, coords):
+	#tilemap.set_cell(1, coords, 6)
+	tilemap.set_cell(1, coords, 3, Vector2(0,-6), 2)
+	
+	var bolt = lightningScene.instantiate()
+	var exp = explosionScene.instantiate()
+	bolt.get_node("Line2D").points = PackedVector2Array([Vector2(get_global_mouse_position().x,-20*get_global_mouse_position().y), Vector2(get_global_mouse_position().x,get_global_mouse_position().y)])
+	exp.global_position = get_global_mouse_position()
+	get_parent().get_parent().add_child(bolt)
+	get_parent().get_parent().add_child(exp)
+	
+	$explode.play()

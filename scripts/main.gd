@@ -149,6 +149,7 @@ func _process(delta: float) -> void:
 			#	var addStr = selectedTool[0] + str(hotbar.items.size())
 			#	hotbar.items.append(addStr)
 			selectedTool = hoveredTool[0]
+			print(selectedTool)
 			
 			for i in hotbar.items:
 				if i.begins_with(selectedTool):
@@ -159,7 +160,7 @@ func _process(delta: float) -> void:
 					hotbar.changeSelected(selectedTool)
 					break
 	
-	print(hotbar.items)		
+	#print(hotbar.items)		
 		
 
 func loadLevel():
@@ -237,6 +238,21 @@ func getBlockHit():
 				if hover.hovered[1].get_custom_data("type") == "Crate" and selectedTool == "bolt":
 					hover.hovered[1].set_terrain(0)
 					blockBreak.destroy(levelNode.get_node("tileMap"), hover.hovered[2])
+					selectedTool = ""
+					hotbar.changeSelected(selectedTool)
+					onLevelLoad()
+					cratesDestroyed += 1
+					if cratesDestroyed >= cratesInLevel[level-1]:
+						cratesDestroyed = 0
+						#if level < 8:
+						#	level += 1
+						#elif level == 8:
+						#	print("WIN")
+						#	level = 1
+						$UI.next_lvl_popup()
+				if hover.hovered[1].get_custom_data("type") == "Return" and selectedTool == "mine":
+					hover.hovered[1].set_terrain(7)
+					blockBreak.replace(levelNode.get_node("tileMap"), hover.hovered[2])
 					selectedTool = ""
 					hotbar.changeSelected(selectedTool)
 					onLevelLoad()

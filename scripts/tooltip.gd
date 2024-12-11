@@ -3,6 +3,7 @@ extends Control
 const boltDesc = "Destroys one block."
 const strmDesc = "Destroys all blocks in a \nsix-block radius."
 const sctrDesc = "Destroys every other block in a\nsix-block square"
+const thndDesc = "Destroys one block, \nthen destroys four bocks in a plus shape\nafter hit by a bolt."
 
 const crateDesc = "These are your target.\nDestroy all to move to the next level."
 const returnDesc = "Returns spells when destroyed. \nSpells:"
@@ -42,6 +43,9 @@ func ItemPopup(x, y, item):
 	if item == "sctr":
 		$UI/ItemPopup/VBoxContainer/Name.text = "Scatter"
 		$UI/ItemPopup/VBoxContainer/Desc.text = sctrDesc
+	if item == "mine":
+		$UI/ItemPopup/VBoxContainer/Name.text = "Thunder"
+		$UI/ItemPopup/VBoxContainer/Desc.text = thndDesc
 	
 func HideItemPopup():
 	%ItemPopup.hide()
@@ -83,11 +87,11 @@ func BlockPopup(block, contents, x, y):
 			contText += 'x' + str(numItems[0]) + ' bolt '
 		if numItems[1] != 0:
 			print('x' + str(numItems[1]) + 'strm')
-			contText += 'x' + str(numItems[1]) + ' strm '
+			contText += 'x' + str(numItems[1]) + ' storm '
 		if numItems[2] != 0:
-			contText += 'x' + str(numItems[2]) + ' mine '
+			contText += 'x' + str(numItems[2]) + ' thunder '
 		if numItems[3] != 0:
-			contText += 'x' + str(numItems[3]) + ' sctr '
+			contText += 'x' + str(numItems[3]) + ' scatter '
 		$UI/BlockPopup/VBoxContainer/Label.text = contText
 	else:
 		$UI/BlockPopup/VBoxContainer/Label.text = ''	
