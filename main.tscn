@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://7du3ycatnd4d" path="res://objects/levels/level_8.tscn" id="10_3wee8"]
 [ext_resource type="Script" path="res://scripts/destroy_block.gd" id="11_4h8dr"]
 [ext_resource type="PackedScene" uid="uid://sj7sbwj13vce" path="res://objects/hotbar.tscn" id="12_px6f5"]
-[ext_resource type="AudioStream" uid="uid://ddt0sulyc1iqq" path="res://assets/GameSFX/Impact/Retro Impact Punch 07.wav" id="13_fbt1l"]
+[ext_resource type="AudioStream" uid="uid://cflw40u304spt" path="res://assets/GameSFX/Impact/Retro Impact Punch 07.wav" id="13_fbt1l"]
 [ext_resource type="PackedScene" uid="uid://dgvw1axnrkopi" path="res://objects/ui.tscn" id="15_euvv0"]
 
 [node name="Main" type="Node2D"]
