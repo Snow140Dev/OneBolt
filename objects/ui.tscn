@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgvw1axnrkopi"]
+[gd_scene load_steps=12 format=3 uid="uid://dgvw1axnrkopi"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_igjyw"]
 [ext_resource type="FontFile" uid="uid://dabmi550dflbc" path="res://assets/PixeloidMono.ttf" id="2_cfkig"]
 [ext_resource type="Texture2D" uid="uid://cg1v64hoxuodf" path="res://assets/button.png" id="3_0bajj"]
 [ext_resource type="LabelSettings" uid="uid://batptxc6321rq" path="res://objects/tooltipTitle.tres" id="4_cjn4i"]
 [ext_resource type="LabelSettings" uid="uid://bqvb4erym74a3" path="res://objects/tooltipText.tres" id="5_bcq1a"]
+[ext_resource type="Texture2D" uid="uid://broxn4x5ww0pu" path="res://assets/miniHotbar.png" id="6_8iqgw"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_jena4"]
 
@@ -32,7 +33,6 @@ process_mode = 3
 script = ExtResource("1_igjyw")
 
 [node name="MainMenu" type="Node2D" parent="."]
-visible = false
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="MainMenu"]
 modulate = Color(0.34902, 0.34902, 0.34902, 0.411765)
@@ -104,6 +104,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LevelSelect" type="Node2D" parent="."]
+visible = false
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="LevelSelect"]
 modulate = Color(0.34902, 0.34902, 0.34902, 0.411765)
@@ -321,6 +322,51 @@ text = "Return To Menu"
 label_settings = ExtResource("5_bcq1a")
 horizontal_alignment = 1
 
+[node name="LevelComplete" type="Node2D" parent="."]
+visible = false
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="LevelComplete"]
+modulate = Color(0.34902, 0.34902, 0.34902, 0.411765)
+position = Vector2(638, 341.125)
+scale = Vector2(1439, 683.75)
+mesh = SubResource("QuadMesh_jena4")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelComplete"]
+self_modulate = Color(0.87451, 1, 0.901961, 0.788235)
+position = Vector2(576, 324)
+scale = Vector2(10, 10)
+texture = ExtResource("6_8iqgw")
+
+[node name="Completed" type="Label" parent="LevelComplete"]
+offset_left = 453.0
+offset_top = 223.0
+offset_right = 699.0
+offset_bottom = 306.0
+text = "Level 
+Complete!"
+label_settings = ExtResource("4_cjn4i")
+horizontal_alignment = 1
+
+[node name="NextLVL" type="Button" parent="LevelComplete"]
+offset_left = 497.0
+offset_top = 353.0
+offset_right = 652.0
+offset_bottom = 395.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelComplete/NextLVL"]
+position = Vector2(78, 21)
+scale = Vector2(2.03125, 1.35938)
+texture = ExtResource("3_0bajj")
+
+[node name="Label" type="Label" parent="LevelComplete/NextLVL"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 10.0
+offset_right = 123.0
+offset_bottom = 33.0
+text = "Continue"
+label_settings = ExtResource("5_bcq1a")
+
 [connection signal="pressed" from="MainMenu/playButton" to="." method="play_pressed"]
 [connection signal="pressed" from="MainMenu/levelSelectButton" to="." method="level_select_pressed"]
 [connection signal="pressed" from="LevelSelect/Level1" to="." method="level_pressed" binds= [1]]
@@ -332,3 +378,4 @@ horizontal_alignment = 1
 [connection signal="pressed" from="LevelSelect/Level7" to="." method="level_pressed" binds= [7]]
 [connection signal="pressed" from="LevelSelect/Level8" to="." method="level_pressed" binds= [8]]
 [connection signal="pressed" from="LevelSelect/Back" to="." method="back_pressed"]
+[connection signal="pressed" from="LevelComplete/NextLVL" to="." method="next_lvl"]
