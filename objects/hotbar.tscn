@@ -37,10 +37,15 @@ texture = ExtResource("5_s78cg")
 
 [node name="mine" type="Sprite2D" parent="selectedVeiw"]
 visible = false
+z_index = 12
+position = Vector2(1125, 30)
+scale = Vector2(1.1875, 1.1875)
 texture = ExtResource("6_ty7ar")
 
 [node name="sctr" type="Sprite2D" parent="selectedVeiw"]
 visible = false
+position = Vector2(1119.5, 28.5)
+scale = Vector2(1.21875, 1.21875)
 texture = ExtResource("7_r8qr4")
 
 [node name="items" type="Node2D" parent="."]
