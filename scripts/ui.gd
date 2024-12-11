@@ -13,7 +13,8 @@ signal gameStarted
 	$LevelSelect/Level6,
 	$LevelSelect/Level7,
 	$LevelSelect/Level8,
-	$LevelSelect/Back
+	$LevelSelect/Back,
+	$LevelComplete/NextLVL
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -53,3 +54,19 @@ func level_pressed(lvl: int) -> void:
 	get_parent().level = lvl
 	
 	emit_signal("gameStarted")
+
+func next_lvl_popup():
+	get_tree().paused = true
+	$LevelComplete.visible = true
+	if get_parent().level == 8:
+		$LevelComplete/Completed.text = "You Won!"
+
+func next_lvl() -> void:
+	$LevelComplete.visible = false
+	get_tree().paused = false
+	if get_parent().level < 8:
+		get_parent().level += 1
+	elif get_parent().level == 8:
+		get_tree().reload_current_scene()
+	get_parent().loadLevel()
+	

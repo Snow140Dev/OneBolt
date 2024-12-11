@@ -64,6 +64,8 @@ var strmCoords = [
 				Vector2(26,39)]
 var strmHovers = []
 
+var cratesInLevel = [ 1,2,32,4,4,15,1,1 ]
+var cratesDestroyed = 0
 ## Game Vars ##
 
 var level = 1
@@ -102,7 +104,11 @@ func start():
 	loadLevel()
 
 func _process(delta: float) -> void:
-	getBlockHover()
+	if get_tree().paused:
+		$Levels.visible = false
+	else:
+		$Levels.visible = true
+		getBlockHover()
 	
 	if selectedTool == 'strm':
 		strmHovers = []
@@ -234,13 +240,15 @@ func getBlockHit():
 					selectedTool = ""
 					hotbar.changeSelected(selectedTool)
 					onLevelLoad()
-					if blocks[crates] == []:
-						if level < 8:
-							level += 1
-						elif level == 8:
-							print("WIN")
-							level = 1
-						loadLevel()
+					cratesDestroyed += 1
+					if cratesDestroyed >= cratesInLevel[level-1]:
+						cratesDestroyed = 0
+						#if level < 8:
+						#	level += 1
+						#elif level == 8:
+						#	print("WIN")
+						#	level = 1
+						$UI.next_lvl_popup()
 				elif hover.hovered[1].get_custom_data("type") == "Return" and selectedTool == "bolt":
 					var contents = Tooltip.returns[[level, hover.finalCoords.x, hover.finalCoords.y]]
 					hotbar.items = contents
