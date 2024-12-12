@@ -16,8 +16,7 @@ func destroy(tilemap, coords):
 	$explode.play()
 	
 func replace(tilemap, coords):
-	#tilemap.set_cell(1, coords, 6)
-	tilemap.set_cell(1, coords, 3, Vector2(0,-6), 2)
+	tilemap.set_cell(1, coords, 0, Vector2(3,0), 0)
 	
 	var bolt = lightningScene.instantiate()
 	var exp = explosionScene.instantiate()
@@ -27,3 +26,6 @@ func replace(tilemap, coords):
 	get_parent().get_parent().add_child(exp)
 	
 	$explode.play()
+	
+func replace2(tilemap, coords):
+	tilemap.set_cell(1, coords, 0, Vector2(2,0), 0)

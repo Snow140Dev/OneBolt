@@ -197,6 +197,7 @@ func onLevelLoad():
 
 func getBlockHover():
 	if hover.hovered.size() > 1:
+		#print(hover.hovered[2])
 		if hover.hovered[0]:
 			if hover.hovered[0].get_custom_data("type") == "Lava":
 				if not hover.hovered[1]:
@@ -250,20 +251,42 @@ func getBlockHit():
 						#	print("WIN")
 						#	level = 1
 						$UI.next_lvl_popup()
-				if hover.hovered[1].get_custom_data("type") == "Return" and selectedTool == "mine":
-					hover.hovered[1].set_terrain(7)
+				elif hover.hovered[1].get_custom_data("type") == "Return" and selectedTool == "mine":
+					#hover.hovered[1].set_terrain(7)
+					var contents = Tooltip.returns[[level, hover.finalCoords.x, hover.finalCoords.y]]
+					print(contents)
+					hotbar.items = contents
+					hotbar.loadItems()
 					blockBreak.replace(levelNode.get_node("tileMap"), hover.hovered[2])
 					selectedTool = ""
 					hotbar.changeSelected(selectedTool)
 					onLevelLoad()
-					cratesDestroyed += 1
+					#cratesDestroyed += 1
 					if cratesDestroyed >= cratesInLevel[level-1]:
 						cratesDestroyed = 0
-						#if level < 8:
-						#	level += 1
-						#elif level == 8:
-						#	print("WIN")
-						#	level = 1
+						$UI.next_lvl_popup()
+				elif hover.hovered[1].get_custom_data("type") == "Key" and selectedTool == "mine":
+					blockBreak.replace2(levelNode.get_node("tileMap"), Vector2i(7,2))
+					blockBreak.replace(levelNode.get_node("tileMap"), hover.hovered[2])
+					selectedTool = ""
+					hotbar.changeSelected(selectedTool)
+					onLevelLoad()
+					#cratesDestroyed += 1
+					if cratesDestroyed >= cratesInLevel[level-1]:
+						cratesDestroyed = 0
+						$UI.next_lvl_popup()
+				elif hover.hovered[1].get_custom_data("type") == "Scatter" and selectedTool == "bolt":
+					#hover.hovered[1].set_terrain(7)
+					blockBreak.destroy(levelNode.get_node("tileMap"), hover.hovered[2]-Vector2i(2,0))
+					blockBreak.destroy(levelNode.get_node("tileMap"), hover.hovered[2]-Vector2i(0,2))
+					blockBreak.destroy(levelNode.get_node("tileMap"), hover.hovered[2]+Vector2i(2,0))
+					blockBreak.destroy(levelNode.get_node("tileMap"), hover.hovered[2]+Vector2i(0,2))
+					selectedTool = ""
+					hotbar.changeSelected(selectedTool)
+					onLevelLoad()
+					cratesDestroyed += 4
+					if cratesDestroyed >= cratesInLevel[level-1]:
+						cratesDestroyed = 0
 						$UI.next_lvl_popup()
 				elif hover.hovered[1].get_custom_data("type") == "Return" and selectedTool == "bolt":
 					var contents = Tooltip.returns[[level, hover.finalCoords.x, hover.finalCoords.y]]
