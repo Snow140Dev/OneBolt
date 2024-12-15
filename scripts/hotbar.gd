@@ -32,20 +32,22 @@ func changeSelected(tool):
 		selectedItemsVeiw[3].visible = false
 	
 func loadItems():
+	prevItems = $items.get_children()
+	var ItemsPos = []
+	for item in items:
+		ItemsPos.append(item)
 	for prev in prevItems:
-		if prev:
-			prev.visible = false
-			prev.queue_free()
-			prevItems.erase(prev)
+		prev.queue_free()
 	for item in items:
 		prevItems = []
 		var newItem = itemScene.instantiate()
-		var pos = items.bsearch(item, false)
+		var pos = ItemsPos.bsearch(item, false)
+		ItemsPos.erase(item)
 		newItem.name = "Item" + str(pos)
 		newItem.type = item.erase(4, 10)
 		newItem.position.y = 31
 		newItem.position.x = 25 + 40*(pos - 1)
-		add_child(newItem)
+		$items.add_child(newItem)
 		prevItems.append(get_node(str(newItem.name)))
 	print(prevItems)
 		
